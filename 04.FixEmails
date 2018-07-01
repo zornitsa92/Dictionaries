@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace _04.FixEmails
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var phoneBook = new Dictionary<string, string>();
+
+            string name = Console.ReadLine();
+
+            while (name != "stop")
+            {
+                string email = Console.ReadLine();
+
+                if (email.EndsWith(".us") || email.EndsWith(".uk"))
+                {
+                    phoneBook.Remove(name);
+                }
+                else
+                {
+                    phoneBook[name] = email;
+                }
+
+                name = Console.ReadLine();
+            }
+            foreach (var item in phoneBook)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value}");
+            }
+        }
+    }
+}
